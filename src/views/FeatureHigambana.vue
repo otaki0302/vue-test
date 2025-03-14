@@ -11,16 +11,13 @@
             <div class="content-inner">
                <h2 class="sec-ttl">彼岸花が見られる名所</h2>
                <div class="sec--lead__col">
-                    <swiper class="sec--lead__slide"
-                        :modules="[Navigation, Pagination, A11y, Autoplay]"
-                        :slides-per-view="1"
-                        :loop="true"
-                        :space-between="25"
-                        navigation
-                        :pagination="{ clickable: true }"
-                        autoplay
-                        :delay="2500"
-                        :speed="1500"
+                    <swiper-container
+                        class="sec--lead__slide"
+                        slides-per-view="1"
+                        space-between="25"
+                        navigation="true"
+                        pagination="true"
+                        loop="true"
                     >
                         <swiper-slide><img src="@/assets/feature-higambana/img01.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
                         <swiper-slide><img src="@/assets/feature-higambana/img02.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
@@ -30,7 +27,7 @@
                         <swiper-slide><img src="@/assets/feature-higambana/img02.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
                         <swiper-slide><img src="@/assets/feature-higambana/img03.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
                         <swiper-slide><img src="@/assets/feature-higambana/img04.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
-                    </swiper>
+                    </swiper-container>
                     <div class="sec--lead__dtl">
                         <h3 class="sec--lead__dtl__ttl">埼玉県 巾着田</h3>
                         <p class="sec--lead__dtl__txt">
@@ -39,16 +36,13 @@
                     </div>
                 </div>
                 <div class="sec--lead__col">
-                    <swiper class="sec--lead__slide"
-                        :modules="[Navigation, Pagination, A11y, Autoplay]"
-                        :slides-per-view="1"
-                        :loop="true"
-                        :space-between="25"
-                        navigation
-                        :pagination="{ clickable: true }"
-                        autoplay
-                        :delay="2500"
-                        :speed="1500"
+                    <swiper-container
+                        class="sec--lead__slide"
+                        slides-per-view="1"
+                        space-between="25"
+                        navigation="true"
+                        pagination="true"
+                        loop="true"
                     >
                         <swiper-slide><img src="@/assets/feature-higambana/img05.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
                         <swiper-slide><img src="@/assets/feature-higambana/img06.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
@@ -58,7 +52,7 @@
                         <swiper-slide><img src="@/assets/feature-higambana/img06.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
                         <swiper-slide><img src="@/assets/feature-higambana/img07.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
                         <swiper-slide><img src="@/assets/feature-higambana/img08.jpg" width="" height="" alt="" loading="lazy"></swiper-slide>
-                    </swiper>
+                    </swiper-container>
                     <div class="sec--lead__dtl">
                         <h3 class="sec--lead__dtl__ttl">埼玉県 深山（みやま）の花園</h3>
                         <p class="sec--lead__dtl__txt">
@@ -185,7 +179,7 @@
     }
     .sec--lead__col {
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2,calc(50% - 25px));
         align-items: center;
         gap: 50px;
         & + & {
@@ -217,14 +211,24 @@
         font-family: "Shippori Mincho",serif;
         line-height: 1.8;
     }
-    .sec--lead__slide .swiper-button-prev,.swiper-button-next {
+    swiper-container {
+        --swiper-navigation-color: #fff;
+
+        &::part(bullet-active) {
+            background: #fff;
+        }
+        &::part(navigation) {
+            width: 100px;
+        }
+    }
+    .sec--lead__slide :deep(.swiper-button-prev,.swiper-button-next) {
         transition: .2s;
         &:hover {
             opacity: .7;
         }
     }
-    .sec--lead__slide:deep(.swiper-button-prev:after),
-    .sec--lead__slide:deep(.swiper-button-next:after) {
+    .sec--lead__slide :deep(.swiper-button-prev:after),
+    .sec--lead__slide :deep(.swiper-button-next:after) {
         content: "";
         display: block;
         width: 24px;
@@ -233,11 +237,8 @@
         border-right: 2px solid #fff;
         rotate: 45deg;
     }
-    .sec--lead__slide:deep(.swiper-button-prev:after) {
+    .sec--lead__slide :deep(.swiper-button-prev:after) {
         rotate: -135deg;
-    }
-    .sec--lead__slide:deep(.swiper-pagination-bullet-active) {
-        background: #fff;
     }
     .sec--tour {
         padding-block: 160px 80px;
@@ -249,24 +250,7 @@
         gap: 30px;
     }
 </style>
-<script>
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    return {
-      modules: [Navigation, Pagination, A11y, Autoplay],
-    };
-  },
-};
+<script type="module">
+    import { register } from 'swiper/element/bundle';
+    register();
 </script>
