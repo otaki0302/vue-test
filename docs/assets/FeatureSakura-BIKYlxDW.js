@@ -1,1 +1,0 @@
-import{_ as a,c as t,a as e,d as c,o}from"./index-CXgcmQ4d.js";const r={},n={class:"mv"};function d(_,s){return o(),t("div",n,s[0]||(s[0]=[e("div",{class:"mv-inner"},[e("h1",{class:"mv-ttl"},[e("span",null,"桜"),c(" 特集 ")])],-1)]))}const i=a(r,[["render",d],["__scopeId","data-v-05673bc6"]]);export{i as default};
