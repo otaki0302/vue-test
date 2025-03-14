@@ -217,9 +217,6 @@
         &::part(bullet-active) {
             background: #fff;
         }
-        &::part(navigation) {
-            width: 100px;
-        }
     }
     .sec--lead__slide :deep(.swiper-button-prev,.swiper-button-next) {
         transition: .2s;
