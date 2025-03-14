@@ -22,6 +22,11 @@ const router = createRouter({
       name: 'feature-higambana',
       component: () => import('../views/FeatureHigambana.vue'),
     },
+    {
+      path: '/feature-sakura',
+      name: 'feature-sakura',
+      component: () => import('../views/FeatureSakura.vue'),
+    },
   ],
 })
 

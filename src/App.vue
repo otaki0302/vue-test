@@ -15,6 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/feature-higambana">彼岸花特集</RouterLink>
+          <RouterLink to="/feature-sakura">桜特集</RouterLink>
       </nav>
     </div>
   </header>
